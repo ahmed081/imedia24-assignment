@@ -1,4 +1,6 @@
 package com.example.demo.dtos
 
-class CategoryDTO {
-}
+data class CategoryDTO(
+    var id: Long,
+    var nameCategory: String
+)

@@ -1,18 +1,32 @@
 package com.example.demo.entities
 
-import lombok.Data
-import lombok.NoArgsConstructor
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import java.util.*
+import javax.persistence.*
 
-@Data
+
 @Entity
-@NoArgsConstructor
-class Product {
+data class Product (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id :Long = 0L;
-}
+    var id :Long ,
+
+    var productPrice : Double,
+    var productName :String ,
+    var productQuantity : Int,
+
+    @Column(name = "created_at", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    var createdAt : Date? ,
+    @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    var updatedAt : Date?,
+
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    var category : Category?
+
+
+
+)
