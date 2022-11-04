@@ -36,8 +36,8 @@ class CurrencyService(
     }
 
 
-    override fun getCurrencies(): Map<String, String>? {
+    override fun getCurrencies(): Currency? {
         val currency: Currency? = currencyExchange.getCurrencies(accessKey)
-        return currency?.symbols
+        return currency
     }
 }

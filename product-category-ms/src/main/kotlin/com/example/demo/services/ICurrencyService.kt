@@ -1,5 +1,6 @@
 package com.example.demo.services
 
+import com.example.demo.dtos.Currency
 import com.example.demo.dtos.ProductDTO
 
 interface ICurrencyService {
@@ -20,5 +21,5 @@ interface ICurrencyService {
      * @author Ahmed EL ASSIMI
      * @return Map<String,String>
      */
-    fun getCurrencies(): Map<String,String>?
+    fun getCurrencies(): Currency?
 }

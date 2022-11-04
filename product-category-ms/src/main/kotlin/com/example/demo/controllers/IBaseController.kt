@@ -1,5 +1,8 @@
 package com.example.demo.controllers
 
+import com.example.demo.dtos.ResponseDTO
+import org.springframework.http.ResponseEntity
+
 
 interface IBaseController<DAO>  {
 
@@ -9,14 +12,14 @@ interface IBaseController<DAO>  {
      * @param id
      * @return  T
      */
-    fun getOneById(id:Long): DAO;
+    fun getOneById(id:Long): ResponseEntity<ResponseDTO<DAO>>;
 
     /**
      * to get all element
      * @author Ahmed EL ASSIMI
      * @return  List<T>
      */
-    fun getAll(): List<DAO>;
+    fun getAll():  ResponseEntity<ResponseDTO<DAO>>;
 
     /**
      * to add one element
@@ -24,7 +27,7 @@ interface IBaseController<DAO>  {
      * @param dto
      * @return  T
      */
-    fun addOne(dto:DAO):DAO;
+    fun addOne(dto:DAO): ResponseEntity<ResponseDTO<DAO>>;
 
     /**
      * to update an element
@@ -33,7 +36,7 @@ interface IBaseController<DAO>  {
      * @param id
      * @return  T
      */
-    fun updateOne(dto:DAO,id: Long):DAO;
+    fun updateOne(dto:DAO,id: Long): ResponseEntity<ResponseDTO<DAO>>;
 
     /**
      * to delete an element
@@ -41,5 +44,5 @@ interface IBaseController<DAO>  {
      * @param id
      * @return  T
      */
-    fun deleteOne(id:Long):DAO;
+    fun deleteOne(id:Long): ResponseEntity<ResponseDTO<DAO>>;
 }

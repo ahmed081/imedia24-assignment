@@ -33,7 +33,7 @@ class ApplicationRunner {
 
 		categoryRepository.findAll().forEach{
 			val product = Product()
-			product.productPrice= Random.nextDouble()*100
+			product.productPrice=String.format("%.2f",  Random.nextDouble()*100).toDouble()
 			product.productName= UUID.randomUUID().toString()
 			product.productQuantity= 12
 			product.exchangeRate= 1.0
